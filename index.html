@@ -2,17 +2,263 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>M1 Lab 1</title>
-    <!--<script src="js/01-larger-or-smaller.js"></script>-->
-    <!--<script src="js/02-coinflip.js"></script>-->
-    <!--<script src="js/03-coinflip-redux.js"></script>-->
-    <!--<script src="js/04-coinflip-streak.js"></script>-->
-    <!--<script src="js/05-triangle.js"></script>-->
-    <!--<script src="js/06-odd-or-even.js"></script>-->
-    <!--<script src="js/07-marco-polo.js"></script>-->
-    <script src="js/08-countdown.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Conditionals & Loops Lab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .exercise-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            background: #f9f9f9;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-color: #667eea;
+        }
+        
+        .exercise-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .exercise-card p {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .exercise-card button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .exercise-card button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .exercise-card button:active {
+            transform: scale(0.98);
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .info-box strong {
+            color: #1976d2;
+        }
+        
+        .console-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        
+        .points {
+            display: inline-block;
+            background: #4caf50;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>CS 648 M1 Lab1</h1>
+        <p>By Sanika Patankar RedID: 134192666</p>
+        <p class="subtitle">Conditionals & Loops Exercises</p>
+        
+        <div class="info-box">
+            <strong>📋 Instructions:</strong> Click any button below to run that exercise. 
+            For exercises that output to the console, press <strong>F12</strong> (or <strong>Ctrl+Shift+K</strong> in Firefox) to view results.
+        </div>
+        
+        <div class="exercise-grid">
+            <!-- Exercise 1 -->
+            <div class="exercise-card">
+                <h3>1. Larger or Smaller <span class="points">5 pts</span></h3>
+                <p>Compares two numbers and displays the larger one.</p>
+                <button onclick="runExercise1()">Run Exercise 1</button>
+            </div>
+            
+            <!-- Exercise 2 -->
+            <div class="exercise-card">
+                <h3>2. Coin Flip Game <span class="points">10 pts</span></h3>
+                <p>Guess heads or tails and see if you win!</p>
+                <button onclick="runExercise2()">Run Exercise 2</button>
+            </div>
+            
+            <!-- Exercise 3 -->
+            <div class="exercise-card">
+                <h3>3. Coin Flip Redux <span class="points">10 pts</span></h3>
+                <p>Simulates 10 coin flips. Check console for results.</p>
+                <button onclick="runExercise3()">Run Exercise 3</button>
+            </div>
+            
+            <!-- Exercise 4 -->
+            <div class="exercise-card">
+                <h3>4. Coin Flip Streak <span class="points">5 pts</span></h3>
+                <p>See how many heads in a row! Check console.</p>
+                <button onclick="runExercise4()">Run Exercise 4</button>
+            </div>
+            
+            <!-- Exercise 5 -->
+            <div class="exercise-card">
+                <h3>5. Looping Triangle <span class="points">5 pts</span></h3>
+                <p>Displays a triangle pattern. Check console.</p>
+                <button onclick="runExercise5()">Run Exercise 5</button>
+            </div>
+            
+            <!-- Exercise 6 -->
+            <div class="exercise-card">
+                <h3>6. Odd or Even <span class="points">5 pts</span></h3>
+                <p>Checks numbers 0-15 for odd/even. Check console.</p>
+                <button onclick="runExercise6()">Run Exercise 6</button>
+            </div>
+            
+            <!-- Exercise 7 -->
+            <div class="exercise-card">
+                <h3>7. Marco Polo <span class="points">5 pts</span></h3>
+                <p>FizzBuzz variant (1-100). Check console.</p>
+                <button onclick="runExercise7()">Run Exercise 7</button>
+            </div>
+            
+            <!-- Exercise 8 -->
+            <div class="exercise-card">
+                <h3>8. Countdown <span class="points">5 pts</span></h3>
+                <p>Counts down from your number to 0. Check console.</p>
+                <button onclick="runExercise8()">Run Exercise 8</button>
+            </div>
+        </div>
+        
+        <div class="console-note">
+            <strong>💡 Note:</strong> Exercises 3-8 output to the browser console. 
+            Open it with <strong>F12</strong> or <strong>Ctrl+Shift+K</strong> (Firefox) / <strong>Cmd+Option+K</strong> (Mac).
+        </div>
+    </div>
     
+    <script>
+        // Function to load and execute a script
+        async function loadAndRunScript(scriptPath) {
+            try {
+                const response = await fetch(scriptPath);
+                const scriptText = await response.text();
+                
+                // Execute the script
+                eval(scriptText);
+                
+                console.log('✅ Executed: ' + scriptPath);
+            } catch (error) {
+                console.error('❌ Error loading script:', error);
+                alert('Error loading script. Make sure the js folder exists and contains the script files.');
+            }
+        }
+        
+        // Exercise 1: Larger or Smaller
+        function runExercise1() {
+            loadAndRunScript('js/01-larger-or-smaller.js');
+        }
+        
+        // Exercise 2: Coin Flip Game
+        function runExercise2() {
+            loadAndRunScript('js/02-coinflip.js');
+        }
+        
+        // Exercise 3: Coin Flip Redux
+        function runExercise3() {
+            loadAndRunScript('js/03-coinflip-redux.js');
+        }
+        
+        // Exercise 4: Coin Flip Streak
+        function runExercise4() {
+            loadAndRunScript('js/04-coinflip-streak.js');
+        }
+        
+        // Exercise 5: Looping Triangle
+        function runExercise5() {
+            loadAndRunScript('js/05-triangle.js');
+        }
+        
+        // Exercise 6: Odd or Even
+        function runExercise6() {
+            loadAndRunScript('js/06-odd-or-even.js');
+        }
+        
+        // Exercise 7: Marco Polo
+        function runExercise7() {
+            loadAndRunScript('js/07-marco-polo.js');
+        }
+        
+        // Exercise 8: Countdown
+        function runExercise8() {
+            loadAndRunScript('js/08-countdown.js');
+        }
+    </script>
 </body>
 </html>
