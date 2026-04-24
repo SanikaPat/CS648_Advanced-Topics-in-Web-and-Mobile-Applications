@@ -1,0 +1,32 @@
+{
+  "name": "cs648_advanced-topics-in-web-and-mobile-applications",
+  "version": "1.0.0",
+  "description": "Sanika Patankar",
+  "main": "index.js",
+  "scripts": {
+    "compile": "babel M13_Lab1/src --presets @babel/react --out-dir M13_Lab1/public",
+    "watch": "babel M13_Lab1/src --presets @babel/react --out-dir M13_Lab1/public --watch --verbose",
+    "start": "nodemon M13_Lab1/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SanikaPat/CS648_Advanced-Topics-in-Web-and-Mobile-Applications.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/SanikaPat/CS648_Advanced-Topics-in-Web-and-Mobile-Applications/issues"
+  },
+  "homepage": "https://github.com/SanikaPat/CS648_Advanced-Topics-in-Web-and-Mobile-Applications#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.28.6",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
